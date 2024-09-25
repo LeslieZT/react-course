@@ -36,7 +36,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <p>{task.isDone ? 'Done' : 'Not done'}</p>
           <div>
             <button className={`${style.btn} ${style['btn-edit']}`} onClick={() => setEditMode(true)}>Edit</button>
-            <button className={`${style.btn} ${style['btn-edit']}`} onClick={() => handleDelete(task.id)}>Delete</button>
+            <button className={`${style.btn} ${style['btn-delete']}`} onClick={() => handleDelete(task.id)}>Delete</button>
           </div>
         </>
       )}

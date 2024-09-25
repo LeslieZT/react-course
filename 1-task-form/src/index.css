@@ -73,3 +73,7 @@ button:focus-visible {
   margin: 0.5rem;
   padding: 5rem;
 }
+
+.form-container {
+  background-color: blue;
+}

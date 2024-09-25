@@ -1,4 +1,5 @@
 import { Task } from "./Task.types";
+import "./form.scss"
 
 export const CreateTaskForm = ({
   onCreateTask,
@@ -21,7 +22,7 @@ export const CreateTaskForm = ({
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Task name" name="task_title" />
         <button type="submit">Create task</button>
