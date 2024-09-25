@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Task, TaskCardProps } from './Task.types';
-
+import "./Task.css"
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -24,7 +24,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   };
 
   return (
-    <div>
+    <div className='container'>
       {editMode ? (
         <form onSubmit={(e) => handleSubmit(e, task)}>
           <input type="text" defaultValue={task.name} />
@@ -35,8 +35,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <h3>{task.name}</h3>
           <p>{task.isDone ? 'Done' : 'Not done'}</p>
           <div>
-            <button onClick={() => setEditMode(true)}>Edit</button>
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
+            <button className="btn btn-edit" onClick={() => setEditMode(true)}>Edit</button>
+            <button className="btn btn-delete" onClick={() => handleDelete(task.id)}>Delete</button>
           </div>
         </>
       )}
