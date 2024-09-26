@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer/Footer";
 import { useNavigation } from "react-router-dom";
 import { UserContextProvider } from "../context/userContext/userContextProvider";
 
-export function MainLayout() {
+function MainLayout() {
   const navigation = useNavigation();
   return (
     <>
@@ -17,3 +17,5 @@ export function MainLayout() {
     </>
   );
 }
+
+export default MainLayout

@@ -8,8 +8,8 @@ export const  ProtectedRouteV2 = () => {
   // const { user } = useUserLogin()
   const { user } = useContext(UserContext)
 
-  if (!user?.id) {
-    return <Navigate to="/" replace />;
-  }
+  // if (!user?.id) {
+  //   return <Navigate to="/" replace />;
+  // }
   return <Outlet context={{ user }} />;
 };

@@ -5,12 +5,13 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import { router, router2 } from './router/router';
+import { routerLazy } from './router/lazy_router';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <RouterProvider router={router2} />
+      <RouterProvider router={routerLazy} />
     </React.StrictMode>
   );
 } else {

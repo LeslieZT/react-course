@@ -93,9 +93,9 @@ export const Posts = () => {
   console.log('render');
   //   console.log('Posts in render->', posts);
 
-  if(!user?.id){
-    return <div>Not user</div>
-  }
+  // if(!user?.id){
+  //   return <div>Not user</div>
+  // }
 
   if (errors) {
     return <div>{errors}</div>;

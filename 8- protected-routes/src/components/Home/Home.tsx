@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 
-export function Home() {
+function Home() {
  
   return (
     <div className="mx-auto w-full h-vh max-w-7xl">
@@ -43,3 +43,5 @@ export function Home() {
     </div>
   );
 }
+
+export default Home
