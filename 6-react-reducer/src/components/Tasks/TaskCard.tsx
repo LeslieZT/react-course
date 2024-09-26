@@ -1,9 +1,16 @@
 import { Task } from './Tasks.types';
 
-export const TaskCard = ({ task }: { task: Task }) => {
+interface TaskCardProps {
+  task: Task
+  markAsCompleted : (id: number) => void,
+  changeStatus : (id: number, string: any) => void
+}
+
+export const TaskCard = ({ task, markAsCompleted, changeStatus }: TaskCardProps ) => {
   const { id, title, description, status, completed } = task || {};
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    changeStatus(id, e.target.value as Task['status']);
   };
 
   return (
@@ -11,14 +18,14 @@ export const TaskCard = ({ task }: { task: Task }) => {
       <a href="#">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {title}
-          {<span className=" text-red-400">{status}</span>}
+          {<span className=" text-red-400">{completed ? 'IS COMPLETED' : 'NOT COMPLETED'}</span>}
         </h5>
       </a>
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
         {description}
       </p>
       <div className="flex justify-between gap-4">
-        <select name="status" id="status" onChange={handleSelectChange}>
+        <select name="status" id="status" onChange={handleSelectChange} value={status}>
           <option value="IN_PROGRESS">In Progress</option>
           <option value="COMPLETED">Completed</option>
           <option value="PENDING">Pending</option>

@@ -1,17 +1,16 @@
 import { Task } from "./Tasks.types";
 
-export const TaskForm = ({ setTasks, tasks }: { tasks: Task[], setTasks : ( tasks: Task[] ) => void} ) => {
+interface TaskFormProps {
+  createTask : (task: Task) => void;
+}
 
+export const TaskForm = ({ createTask  }: TaskFormProps) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const title = (e.currentTarget.elements[0] as HTMLInputElement).value;
     const description = (e.currentTarget.elements[1] as HTMLInputElement).value;
-
-    setTasks([
-      ...tasks,
-      { id: Date.now(), title, description, completed: false},
-    ]);
+    createTask( { id: Date.now(), title, description, completed: false, status: 'PENDING'})
   };
 
   return (
