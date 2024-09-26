@@ -14,6 +14,7 @@ import {
   import { Login } from "../components/User/Login";
   import { UserContextProvider } from "../context/userContext/userContextProvider";
 import { lazy, Suspense } from "react";
+import { ToDos } from "../components/Todos/ToDos";
   
   const MainLayout = lazy(() => import('../Layouts/MainLayout'));
   const Home = lazy(() => import('../components/Home/Home'));
@@ -47,10 +48,10 @@ import { lazy, Suspense } from "react";
           </UserContextProvider>
         ),
       },
-      //   {
-      //     path: '/todos',
-      //     element: <ToDos />,
-      //   },
+        {
+          path: '/todos',
+          element: <ToDos />,
+        },
       {
         path: "/tasks",
         element: (
