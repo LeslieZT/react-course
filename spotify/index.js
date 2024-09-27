@@ -2,9 +2,9 @@ const express = require('express')
 const querystring = require('querystring');
 const axios = require('axios')
 
-var client_id = '2af8c67ffb4e457f95abf5df3ee07f4e';
-var redirect_uri = 'http://localhost:8888/callback';
-const client_secret = '8071c6a79e8c48d28296877588c92467'
+var client_id = '';
+var redirect_uri = '';
+const client_secret = ''
 
 
 var app = express();
