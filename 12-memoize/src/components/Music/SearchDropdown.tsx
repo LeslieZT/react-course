@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useRef } from 'react';
 import { searchMusic } from '../../service/searchMusic';
+import { debounce } from '../../utils/debounce';
 
 
 type SearchType = 'album' | 'artist' | 'playlist';
@@ -30,6 +31,12 @@ export const SearchDropdown = ({
     
   };
 
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debounce(() => {
+      setSearchQuery(e.target.value);
+    }, 500)();
+  };
+
   return (
     <div className='relative w-full max-w-lg mx-auto'>
       <div className='flex items-center'>
@@ -49,7 +56,7 @@ export const SearchDropdown = ({
             ref = {inputRef}
             type='search'
             // value={searchQuery}
-            // onChange={(e) => setSearchQuery(e.target.value) }
+            onChange={handleInput}
             className='block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border-l border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white'
             // placeholder={`Search for ${selectedOption}...`}
           />
