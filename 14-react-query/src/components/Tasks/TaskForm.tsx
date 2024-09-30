@@ -1,19 +1,21 @@
-import { useContext } from "react";
-import { TasksContext } from "../../context/taskContext/tasksContext";
+import { useCreateTask } from "../../hooks/useTasks";
+
 
 export const TaskForm = () => {
-  const { createTask } = useContext(TasksContext);
+  const { mutateAsync: addTaskMutation } = useCreateTask();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const title = (e.currentTarget.elements[0] as HTMLInputElement).value;
     const description = (e.currentTarget.elements[1] as HTMLInputElement).value;
-    createTask({
-      id: Date.now(),
+    addTaskMutation({
+      id: String(new Date().getTime()),
       title,
       description,
-      completed: false,
-      status: "PENDING",
+      status: 'not started',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      userId: 1,
     });
   };
 
